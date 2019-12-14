@@ -14,6 +14,7 @@ import java.util.ArrayList;
  */
 public class Video  implements Serializable {
     //: Tendran nombre, tiempo de reproducción, numero de likes, numero de dislikes, comentarios y subtítulos. 
+    Canal canal;
     private String nombre;
     private int tiempo;
     private int likes;
@@ -87,9 +88,18 @@ public class Video  implements Serializable {
         this.subtitulos.add(sub);
     }
 
+    public Canal getCanal() {
+        return canal;
+    }
+
+    public void setCanal(Canal canal) {
+        this.canal = canal;
+    }
+    
+
     @Override
     public String toString() {
-        return "Video{" + "nombre=" + nombre + ", tiempo=" + tiempo + ", likes=" + likes + ", dislikes=" + dislikes + ", comentarios=" + comentarios + ", subtitulos=" + subtitulos + '}';
+        return nombre+" Tiempo: "+tiempo+" ";//"Video{" + "nombre=" + nombre + ", tiempo=" + tiempo + ", likes=" + likes + ", dislikes=" + dislikes + ", comentarios=" + comentarios + ", subtitulos=" + subtitulos + '}';
     }
     
     

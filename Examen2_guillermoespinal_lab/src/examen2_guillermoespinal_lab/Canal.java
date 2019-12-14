@@ -90,7 +90,7 @@ public class Canal implements Serializable{
 
     @Override
     public String toString() {
-        return "Canal{" + "subscriptores=" + subscriptores + ", nombre=" + nombre + ", categoria=" + categoria + ", videos=" + videos + ", likes=" + likes + ", vudeos_propios=" + vudeos_propios + '}';
+        return nombre +"-Categoria: "+ categoria  ;//"Canal{" + "subscriptores=" + subscriptores + ", nombre=" + nombre + ", categoria=" + categoria + ", videos=" + videos + ", likes=" + likes + ", vudeos_propios=" + vudeos_propios + '}';
     }
     
      

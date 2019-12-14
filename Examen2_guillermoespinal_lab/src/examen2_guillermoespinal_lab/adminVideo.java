@@ -33,6 +33,9 @@ public class adminVideo  {
     public void setVideos(ArrayList<Video> videos) {
         this.videos = videos;
     }
+    public void addVideo(Video video){
+        this.videos.add(video);
+    }
 
     public File getArchivo() {
         return archivo;

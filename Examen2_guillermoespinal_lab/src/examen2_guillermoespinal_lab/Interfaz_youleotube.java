@@ -5,7 +5,12 @@
  */
 package examen2_guillermoespinal_lab;
 
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+import jdk.nashorn.internal.runtime.arrays.ArrayLikeIterator;
 
 /**
  *
@@ -31,14 +36,33 @@ public class Interfaz_youleotube extends javax.swing.JFrame {
 
         jd_mainmenu = new javax.swing.JDialog();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel2 = new javax.swing.JPanel();
+        jButton5 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        lista_videos_propios = new javax.swing.JList<>();
+        jLabel14 = new javax.swing.JLabel();
+        lb_nombrecanal = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
+        arbol_subs = new javax.swing.JTree();
         jLabel12 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jPanel2 = new javax.swing.JPanel();
+        lista_canales = new javax.swing.JList<>();
+        jLabel13 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        pb_video = new javax.swing.JProgressBar();
+        jLabel15 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        ta_subtitulos = new javax.swing.JTextArea();
+        jLabel16 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        pb_videotabla = new javax.swing.JProgressBar();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        ta_subtitulostabla = new javax.swing.JTextArea();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tabla_video = new javax.swing.JTable();
+        jButton6 = new javax.swing.JButton();
         jd_registrarse = new javax.swing.JDialog();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -66,76 +90,236 @@ public class Interfaz_youleotube extends javax.swing.JFrame {
         jDialog4 = new javax.swing.JDialog();
         jDialog5 = new javax.swing.JDialog();
         categorias = new javax.swing.ButtonGroup();
+        popup = new javax.swing.JPopupMenu();
+        reproducir = new javax.swing.JMenuItem();
+        Anadirplaylist = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         tf_passlogin = new javax.swing.JTextField();
         tf_user = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
 
-        jButton4.setText("Crear video ");
+        jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPane1StateChanged(evt);
+            }
+        });
 
-        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Categorias");
-        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jScrollPane1.setViewportView(jTree1);
+        jButton5.setText("Crear video");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
 
-        jLabel12.setText("Suscribciones :");
+        jScrollPane3.setViewportView(lista_videos_propios);
 
-        jScrollPane2.setViewportView(jList1);
+        jLabel14.setText("Mis videos :");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addGap(118, 118, 118))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 287, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(91, 91, 91))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addGap(30, 30, 30))
-        );
-
-        jTabbedPane1.addTab("WAIt", jPanel1);
+        lb_nombrecanal.setFont(new java.awt.Font("DialogInput", 1, 24)); // NOI18N
+        lb_nombrecanal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton5))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(205, 205, 205)
+                        .addComponent(lb_nombrecanal, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(401, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(lb_nombrecanal, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(132, 132, 132))
         );
 
-        jTabbedPane1.addTab("tab2", jPanel2);
+        jTabbedPane1.addTab("MI canal", jPanel2);
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Categorias");
+        arbol_subs.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        arbol_subs.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                arbol_subsMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(arbol_subs);
+
+        jLabel12.setText("Suscribciones :");
+
+        jScrollPane2.setViewportView(lista_canales);
+
+        jLabel13.setText("Canales :");
+
+        jButton4.setText("Subscribirse");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+
+        jLabel15.setText("Reproducion de video:");
+
+        ta_subtitulos.setEditable(false);
+        ta_subtitulos.setColumns(20);
+        ta_subtitulos.setRows(5);
+        jScrollPane4.setViewportView(ta_subtitulos);
+
+        jLabel16.setText("Subtitulos :");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addGap(481, 481, 481)
+                        .addComponent(jLabel12))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(63, 63, 63)
+                        .addComponent(jButton4)
+                        .addGap(86, 86, 86)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pb_video, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane4))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel13))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton4)
+                        .addGap(102, 102, 102)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pb_video, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addComponent(jLabel15)))
+                        .addGap(77, 77, 77))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane2)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE))
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                        .addContainerGap())))
+        );
+
+        jTabbedPane1.addTab("Subscripciones", jPanel1);
+
+        jLabel17.setText("Reproducion de video:");
+
+        ta_subtitulostabla.setEditable(false);
+        ta_subtitulostabla.setColumns(20);
+        ta_subtitulostabla.setRows(5);
+        jScrollPane5.setViewportView(ta_subtitulostabla);
+
+        tabla_video.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre del video", "Nombre del canal", "Duracion"
+            }
+        ));
+        jScrollPane6.setViewportView(tabla_video);
+
+        jButton6.setText("Empezar");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel17)
+                            .addComponent(jButton6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pb_videotabla, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pb_videotabla, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(64, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton6)
+                        .addGap(49, 49, 49))))
+        );
+
+        jTabbedPane1.addTab("TABLAS", jPanel3);
 
         javax.swing.GroupLayout jd_mainmenuLayout = new javax.swing.GroupLayout(jd_mainmenu.getContentPane());
         jd_mainmenu.getContentPane().setLayout(jd_mainmenuLayout);
         jd_mainmenuLayout.setHorizontalGroup(
             jd_mainmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_mainmenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jd_mainmenuLayout.setVerticalGroup(
             jd_mainmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -292,23 +476,25 @@ public class Interfaz_youleotube extends javax.swing.JFrame {
                 .addGap(86, 86, 86))
             .addGroup(jd_crear_videoLayout.createSequentialGroup()
                 .addGap(95, 95, 95)
-                .addGroup(jd_crear_videoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jd_crear_videoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tf_nombrevideo, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sp_tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(235, Short.MAX_VALUE))
+                    .addGroup(jd_crear_videoLayout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tf_nombrevideo, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_crear_videoLayout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(sp_tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(333, Short.MAX_VALUE))
         );
         jd_crear_videoLayout.setVerticalGroup(
             jd_crear_videoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_crear_videoLayout.createSequentialGroup()
-                .addGap(78, 78, 78)
+                .addGap(91, 91, 91)
                 .addGroup(jd_crear_videoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(tf_nombrevideo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
+                .addGap(33, 33, 33)
                 .addGroup(jd_crear_videoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(sp_tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -339,6 +525,22 @@ public class Interfaz_youleotube extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        reproducir.setText("Reproduicr Video");
+        reproducir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reproducirActionPerformed(evt);
+            }
+        });
+        popup.add(reproducir);
+
+        Anadirplaylist.setText("Anadir a playlist");
+        Anadirplaylist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AnadirplaylistActionPerformed(evt);
+            }
+        });
+        popup.add(Anadirplaylist);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Usuario :");
@@ -352,31 +554,40 @@ public class Interfaz_youleotube extends javax.swing.JFrame {
             }
         });
 
+        jLabel18.setFont(new java.awt.Font("DialogInput", 1, 36)); // NOI18N
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("YouLeoTube");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(41, 41, 41))
             .addGroup(layout.createSequentialGroup()
-                .addGap(84, 84, 84)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tf_user, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(124, 124, 124)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_passlogin, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(tf_user, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tf_passlogin, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(228, Short.MAX_VALUE))
+                        .addGap(206, 206, 206)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(200, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(111, 111, 111)
+                .addGap(15, 15, 15)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(tf_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -384,16 +595,16 @@ public class Interfaz_youleotube extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(tf_passlogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(91, 91, 91))
+                .addGap(55, 55, 55)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        
+
         try {
             String nombre = tf_nombre.getText();
             String correo = tf_correo.getText();
@@ -410,7 +621,7 @@ public class Interfaz_youleotube extends javax.swing.JFrame {
                 categoria = "Entretenimiento";
             }
             Canal canalnuevo = new Canal(nombrecanal, categoria, 0);
-            
+
             Usuarios usuarionuevo = new Usuarios(nombre, edad, correo, usuario, canalnuevo, contra);
             JOptionPane.showMessageDialog(this, "Se a creado el usuario");
             tf_nombre.setText("");
@@ -421,38 +632,93 @@ public class Interfaz_youleotube extends javax.swing.JFrame {
             au.cargarArchivo();
             au.addUsuario(usuarionuevo);
             au.escribirArchivo();
-            
+            /*ac.cargarArchivo();
+            ac.addCanal(canalnuevo);
+            ac.escribirArchivo();*/
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "No se ha podido crear el usuario vuelvalo a intentar");
         }
-       
+
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        String nombrevideo = tf_nombrevideo.getText();
+        int tiempo = (int) sp_tiempo.getValue();
+        int cant = tiempo / 10;
+        ArrayList<String> subs = new ArrayList();
+        for (int i = 0; i < cant; i++) {
+            subs.add(JOptionPane.showInputDialog("Meta el subtitulo " + i));
+        }
+        //av.cargarArchivo();
+        Video videonuevo = new Video(nombrevideo, tiempo, 0, 0);
+        videonuevo.setCanal(usu_global.getCanal());
+        videonuevo.setSubtitulos(subs);
+        usu_global.getCanal().addVideos_propios(videonuevo);
+        //au.cargarArchivo();
+        au.escribirArchivo();
+        /* av.escribirArchivo();
+        ac.escribirArchivo();
+        ap.escribirArchivo();*/
         
-        
+        JOptionPane.showMessageDialog(this, "Se a creado el video");
+
+        lista_videos_propios.setModel(new DefaultListModel());
+        DefaultListModel modelo2 = (DefaultListModel) lista_videos_propios.getModel();
+        for (int i = 0; i < usu_global.getCanal().getVudeos_propios().size(); i++) {
+            modelo2.addElement(usu_global.getCanal().getVudeos_propios().get(i));
+        }
+        lista_videos_propios.setModel(modelo2);
+        tf_nombrevideo.setText("");
+        sp_tiempo.setValue(1);
+
+
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         String usuario = tf_user.getText();
         String contra = tf_passlogin.getText();
-        boolean esta=false;
-        
+        boolean esta = false;
+
         for (int i = 0; i < au.getUsuarios().size(); i++) {
-            if (au.getUsuarios().get(i).getUsuario().equals(usuario)&&au.getUsuarios().get(i).getContra().equals(contra)) {
+            if (au.getUsuarios().get(i).getUsuario().equals(usuario) && au.getUsuarios().get(i).getContra().equals(contra)) {
                 esta = true;
                 usu_global = au.getUsuarios().get(i);
-                
+
             }
         }
-        
-        if(esta == true){
+
+        if (esta == true) {
             JOptionPane.showMessageDialog(this, "Bienvenido");
+
+            try {
+                lista_canales.setModel(new DefaultListModel());
+                DefaultListModel modelo = (DefaultListModel) lista_canales.getModel();
+                //ac.cargarArchivo();
+                
+                for (int i = 0; i < au.getUsuarios().size(); i++) {
+                    modelo.addElement(au.getUsuarios().get(i).getCanal());//ac.getCanales().get(i));
+                }
+                lista_canales.setModel(modelo);
+
+                lb_nombrecanal.setText(usu_global.getCanal().getNombre());
+
+                lista_videos_propios.setModel(new DefaultListModel());
+                DefaultListModel modelo2 = (DefaultListModel) lista_videos_propios.getModel();
+                for (int i = 0; i < usu_global.getCanal().getVudeos_propios().size(); i++) {
+                    modelo2.addElement(usu_global.getCanal().getVudeos_propios().get(i));
+                }
+                lista_videos_propios.setModel(modelo2);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Me mame");
+                e.printStackTrace();
+            }
+
             jd_mainmenu.setModal(true);
             jd_mainmenu.pack();
             jd_mainmenu.setVisible(true);
             jd_mainmenu.setEnabled(true);
-        } else{
+        } else {
             JOptionPane.showMessageDialog(this, "Tiene que registrarse");
             jd_registrarse.setModal(true);
             jd_registrarse.pack();
@@ -461,6 +727,117 @@ public class Interfaz_youleotube extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        jd_crear_video.setModal(true);
+        jd_crear_video.pack();
+        jd_crear_video.setVisible(true);
+        jd_crear_video.setEnabled(true);
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+
+        //lista_canales
+
+    }//GEN-LAST:event_jTabbedPane1StateChanged
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        /*  av.cargarArchivo();
+        ac.cargarArchivo();
+        ap.cargarArchivo();*/
+         
+         
+        //Canal canal = ac.getCanales().get(lista_canales.getSelectedIndex());
+        Usuarios usuario = au.getUsuarios().get(lista_canales.getAnchorSelectionIndex());
+        Canal canal = usuario.getCanal();
+        System.out.println(canal);
+       //System.out.println(canal.getVudeos_propios().size());
+
+        DefaultMutableTreeNode nodoagregar = new DefaultMutableTreeNode(canal);
+       
+        //au.cargarArchivo();
+
+        /*for (int i = 0; i < canal.getVudeos_propios().size(); i++) {
+        nodoagregar.add(new DefaultMutableTreeNode(canal.getVudeos_propios().get(i)));
+        }*/
+        System.out.println(canal.getVudeos_propios().size());
+        for (Video vid :canal.getVudeos_propios() ) {
+            nodoagregar.add(new DefaultMutableTreeNode(vid));
+            System.out.println("entro al for"+ vid);
+        }
+
+        DefaultTreeModel modelo = (DefaultTreeModel) arbol_subs.getModel();
+
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
+        boolean flagcategoria = false;
+        boolean flagexiste = false;
+        DefaultMutableTreeNode nodo = null;
+        for (int i = 0; i < raiz.getChildCount(); i++) {
+            if (raiz.getChildAt(i).toString().equals(canal.getCategoria())) {
+                nodo = (DefaultMutableTreeNode) raiz.getChildAt(i);
+                flagcategoria = true;
+                //flagcategoria=true;
+                for (int j = 0; j < nodo.getChildCount(); j++) {
+                    if (nodo.getChildAt(i).equals(nodoagregar)) {
+                        flagexiste = true;
+                    }
+                }
+            }
+        }
+
+        if (flagexiste == true) {
+            JOptionPane.showMessageDialog(this, "ya esta suscrito a este canal");
+            
+        } else if (flagcategoria == true) {
+            nodo.add(nodoagregar);
+            System.out.println("en el if de f");
+            raiz.add(nodo);
+            
+        } else {
+            DefaultMutableTreeNode nodocat = new DefaultMutableTreeNode(canal.getCategoria());
+            nodocat.add(nodoagregar);
+            raiz.add(nodocat);
+          
+        }
+        modelo.reload();
+        
+        usu_global.addSubscripciones(canal);
+
+
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void arbol_subsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arbol_subsMouseClicked
+        if (evt.isMetaDown()) {
+            int row = arbol_subs.getClosestRowForLocation(evt.getX(), evt.getY());
+
+            arbol_subs.setSelectionRow(row);
+
+            Object vl = arbol_subs.getSelectionPath().getLastPathComponent();
+
+            nodo_selecionado = (DefaultMutableTreeNode) vl;
+            if (nodo_selecionado.getUserObject() instanceof Video) {
+
+                video_selecionado = (Video) nodo_selecionado.getUserObject();
+                popup.setEnabled(true);
+                popup.show(evt.getComponent(), evt.getX(), evt.getY());
+            }
+        }
+    }//GEN-LAST:event_arbol_subsMouseClicked
+
+    private void reproducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reproducirActionPerformed
+        Hilovideo hv = new Hilovideo(pb_video, video_selecionado,ta_subtitulos);
+        hv.start();
+    }//GEN-LAST:event_reproducirActionPerformed
+
+    private void AnadirplaylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnadirplaylistActionPerformed
+       usu_global.addVideo_fav(video_selecionado);
+        
+    }//GEN-LAST:event_AnadirplaylistActionPerformed
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+       HiloTabla ht = new HiloTabla(tabla_video, pb_videotabla, ta_subtitulostabla,usu_global.getVideos_fav());
+       ht.start();
+    }//GEN-LAST:event_jButton6MouseClicked
 
     /**
      * @param args the command line arguments
@@ -494,30 +871,39 @@ public class Interfaz_youleotube extends javax.swing.JFrame {
             public void run() {
                 new Interfaz_youleotube().setVisible(true);
                 //adminUsuarios au = new adminUsuarios("./usuarios.cbm");
-                /* au.cargarArchivo();
-                //adminCanal ac = new adminCanal("./canales.cbm");
+                au.cargarArchivo();
+                /* //adminCanal ac = new adminCanal("./canales.cbm");
                 ac.cargarArchivo();
                 //adminPlaylist ap = new adminPlaylist("./playlist.cbm");
                 ap.cargarArchivo();
                 //adminVideo av = new adminVideo("./videos.cbm");
                 av.cargarArchivo();*/
-                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Anadirplaylist;
+    private javax.swing.JTree arbol_subs;
     private javax.swing.ButtonGroup categorias;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JDialog jDialog4;
     private javax.swing.JDialog jDialog5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -526,21 +912,34 @@ public class Interfaz_youleotube extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTree jTree1;
     private javax.swing.JDialog jd_crear_video;
     private javax.swing.JDialog jd_mainmenu;
     private javax.swing.JDialog jd_registrarse;
+    private javax.swing.JLabel lb_nombrecanal;
+    private javax.swing.JList<String> lista_canales;
+    private javax.swing.JList<String> lista_videos_propios;
+    private javax.swing.JProgressBar pb_video;
+    private javax.swing.JProgressBar pb_videotabla;
+    private javax.swing.JPopupMenu popup;
     private javax.swing.JRadioButton rb_deportes;
     private javax.swing.JRadioButton rb_entretenimiento;
     private javax.swing.JRadioButton rb_juegos;
+    private javax.swing.JMenuItem reproducir;
     private javax.swing.JSpinner sp_edad;
     private javax.swing.JSpinner sp_tiempo;
+    private javax.swing.JTextArea ta_subtitulos;
+    private javax.swing.JTextArea ta_subtitulostabla;
+    private javax.swing.JTable tabla_video;
     private javax.swing.JTextField tf_canal;
     private javax.swing.JTextField tf_contra;
     private javax.swing.JTextField tf_correo;
@@ -551,8 +950,10 @@ public class Interfaz_youleotube extends javax.swing.JFrame {
     private javax.swing.JTextField tf_usuario;
     // End of variables declaration//GEN-END:variables
  static adminUsuarios au = new adminUsuarios("./usuarios.cbm");
-  static adminCanal ac = new adminCanal("./canales.cbm");
-  static adminPlaylist ap = new adminPlaylist("./playlist.cbm");
-  static  adminVideo av = new adminVideo("./videos.cbm");
-  Usuarios usu_global ;
+ /*static adminCanal ac = new adminCanal("./canales.cbm");
+ static adminPlaylist ap = new adminPlaylist("./playlist.cbm");
+ static adminVideo av = new adminVideo("./videos.cbm");*/
+    Usuarios usu_global;
+    DefaultMutableTreeNode nodo_selecionado;
+    Video video_selecionado;
 }
